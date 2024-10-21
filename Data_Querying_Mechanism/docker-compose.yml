@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: pera
+      POSTGRES_PASSWORD: pera
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+#  posts-service:
+#    build: ./posts
+#    environment:
+#      DATABASE_URL: ${DATABASE_URL}
+#    ports:
+#      - "8001:8000"
+#    depends_on:
+#      - postgres
+#
+#  users-service:
+#    build: ./users
+#    environment:
+#      DATABASE_URL: ${DATABASE_URL}
+#    ports:
+#      - "8002:8000"
+#    depends_on:
+#      - postgres
+
+volumes:
+  postgres_data:
